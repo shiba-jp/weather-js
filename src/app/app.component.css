@@ -1,0 +1,16 @@
+.header {
+    padding: 8px;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+}
+.area {
+    padding: 10px;
+    float: left;
+    width: 25%;
+}
+.forecast {
+    padding: 10px;
+    float: right;
+    width: 75%;
+}

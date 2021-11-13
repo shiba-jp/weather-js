@@ -1,0 +1,53 @@
+<h1>予報内容</h1>
+<div class="overview" *ngIf="overview != null">
+    <table>
+        <tr>
+            <th>発表者</th>
+            <td>{{overview.publishingOffice}}</td>
+        </tr>
+        <tr>
+            <th>報告日時</th>
+            <td>{{overview.reportDatetime}}</td>
+        </tr>
+        <tr>
+            <th>対象地域</th>
+            <td>{{overview.targetArea}}</td>
+        </tr>
+        <tr>
+            <th>ヘッドライン</th>
+            <td>{{overview.headlineText}}</td>
+        </tr>
+        <tr>
+            <th>詳細</th>
+            <td>{{overview.text}}</td>
+        </tr>
+    </table>
+</div>
+<br/>
+<div class="forecast">
+    <ng-container *ngFor="let class10 of officeForecast.class10s">
+        <table>
+            <tr>
+                <th>対象地域</th>
+                <td>{{class10.targetArea}}</td>
+            </tr>
+            <tr>
+                <th>今日の天気</th>
+                <td>{{class10.today}}</td>
+            </tr>
+            <tr>
+                <th>気温</th>
+                <td>最低：{{class10.tempAverageMin}}　最高：{{class10.tempAverageMax}}</td>
+            </tr>
+            <tr>
+                <th>明日の天気</th>
+                <td>{{class10.tomorrow}}</td>
+            </tr>
+            <tr>
+                <th>明後日の天気</th>
+                <td>{{class10.dayAfterTomorrow}}</td>
+            </tr>
+        </table>
+        <br/>
+    </ng-container>
+</div>

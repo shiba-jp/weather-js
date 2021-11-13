@@ -1,0 +1,25 @@
+.area_list li#center {
+	list-style-type: disc;/* リストの左側に黒丸 */
+	margin-left: 24px;/* リストの左側に余白 */
+	text-align: left;
+}
+.area_list li#office {
+	list-style-type: circle;/* リストの左側に黒丸 */
+	margin-left: 48px;/* リストの左側に余白 */
+	text-align: left;
+}
+.area_list li#class10 {
+	list-style-type: disc;/* リストの左側に黒丸 */
+	margin-left: 48px;/* リストの左側に余白 */
+	text-align: left;
+}
+.area_list li#class15 {
+	list-style-type: circle;/* リストの左側に黒丸 */
+	margin-left: 60px;/* リストの左側に余白 */
+	text-align: left;
+}
+.area_list li#class20 {
+	list-style-type: disc;/* リストの左側に黒丸 */
+	margin-left: 72px;/* リストの左側に余白 */
+	text-align: left;
+}
