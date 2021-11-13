@@ -47,19 +47,30 @@ export class ForecastComponent implements OnInit  {
         this.officeForecast.class10s = new Array<Class10Forecast>();
 
         this.forecastService.getForecast(selectedOfficeId).subscribe(data => {
-          this.publishingOffice = data[0].publishingOffice;
-          this.reportDatetime = data[0].reportDatetime;
+          this.publishingOffice = data[0].publishingOffice ?? '';
+          this.reportDatetime = data[0].reportDatetime ?? '';
+
+          console.log(data[1]);
 
           for(let i = 0; i < data[0].timeSeries[0].areas.length; i++) {
             console.log(data[0].timeSeries[0].areas[i]);
 
             let class10Forecast = new Class10Forecast();
-            class10Forecast.targetArea = data[0].timeSeries[0].areas[i].area.name;
-            class10Forecast.today = data[0].timeSeries[0].areas[i].weathers[0];
-            class10Forecast.tomorrow = data[0].timeSeries[0].areas[i].weathers[1];
-            class10Forecast.dayAfterTomorrow = data[0].timeSeries[0].areas[i].weathers[2];
-            class10Forecast.tempAverageMin = data[1].tempAverage.areas[i].min;
-            class10Forecast.tempAverageMax = data[1].tempAverage.areas[i].max;
+            class10Forecast.targetArea = data[0].timeSeries[0].areas[i].area.name ?? '';
+            class10Forecast.today = data[0].timeSeries[0].areas[i].weathers[0] ?? '';
+            class10Forecast.tomorrow = data[0].timeSeries[0].areas[i].weathers[1] ?? '';
+            if(data[0].timeSeries[0].areas[i].weathers.length > 2) {
+              class10Forecast.dayAfterTomorrow = data[0].timeSeries[0].areas[i].weathers[2] ?? '';
+            }else{
+              class10Forecast.dayAfterTomorrow = '';
+            }
+            if(data[1].tempAverage.areas.length == data[0].timeSeries[0].areas.length) {
+              class10Forecast.tempAverageMin = data[1].tempAverage.areas[i].min ?? '';
+              class10Forecast.tempAverageMax = data[1].tempAverage.areas[i].max ?? '';
+            }else{
+              class10Forecast.tempAverageMin = data[1].tempAverage.areas[0].min ?? '';
+              class10Forecast.tempAverageMax = data[1].tempAverage.areas[0].max ?? '';
+            }
 
             this.officeForecast.class10s.push(class10Forecast);
           }

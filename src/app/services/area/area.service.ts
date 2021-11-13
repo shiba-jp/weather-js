@@ -3,9 +3,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, Subject } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
+/** 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 };
+*/
 
 @Injectable({
   providedIn: 'root'

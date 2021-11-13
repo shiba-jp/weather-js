@@ -24,7 +24,7 @@
     </table>
 </div>
 <br/>
-<div class="forecast">
+<div class="forecast" *ngIf="officeForecast != null">
     <ng-container *ngFor="let class10 of officeForecast.class10s">
         <table>
             <tr>
