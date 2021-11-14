@@ -14,3 +14,10 @@
     float: right;
     width: 75%;
 }
+
+@media (max-width: 719x) {
+    .area, .forecast {
+        float: left;
+        width: 100%;
+    }
+}
