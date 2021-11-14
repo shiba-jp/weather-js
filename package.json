@@ -4,14 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "node server",
-    "build": "ng build",
+    "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --aot -prod"
+    "postinstall": "npm run build"
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/build-angular": "~0.901.9",
     "@angular/animations": "~9.1.11",
     "@angular/cdk": "^9.2.4",
     "@angular/cli": "~9.1.9",
@@ -36,7 +37,6 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.901.9",
     "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
