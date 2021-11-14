@@ -5,11 +5,13 @@ const express = require('express');
 const app = express();
 
 // 以下の設定だけで dist/index.html も返せてはいる
-app.use(express.static(`${__dirname}/dist`));
+//app.use(express.static(`${__dirname}/dist`));
+app.use(express.static(`/app/dist`));
 
 // ルートへのアクセス時は念のため dist/index.html を確実に返すようにしておく
 app.get('/', (req, res) => {
-  res.sendFile(path.join(`${__dirname}/dist/index.html`));
+  //res.sendFile(path.join(`${__dirname}/dist/index.html`));
+  res.sendFile(path.join(`/app/dist/index.html`));
 });
 
 // サーバ起動
