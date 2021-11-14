@@ -3,6 +3,6 @@ export class Class10Forecast {
     today: string;
     tomorrow: string;
     dayAfterTomorrow: string;
-    tempAverageMin: string;
-    tempAverageMax: string;
+    temp1: string;
+    temp2: string;
 }
