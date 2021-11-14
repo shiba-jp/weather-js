@@ -15,9 +15,9 @@
     width: 75%;
 }
 
-@media (max-width: 719x) {
-    .area, .forecast {
-        float: left;
-        width: 100%;
+@media (max-width: 719px) {
+.area, .forecast {
+    float: left;
+    width: 100%;
     }
 }
