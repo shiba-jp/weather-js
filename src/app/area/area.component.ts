@@ -90,6 +90,8 @@ export class AreaComponent implements OnInit  {
         
         //Office
         for(let officeId in data.offices) {
+          if(officeId.substr(4,2) != '00') continue;
+
           let parentCenterId = data.offices[officeId].parent;
           if(parentCenterId == centerId) {
             let office = new Office;
@@ -100,6 +102,7 @@ export class AreaComponent implements OnInit  {
             
             //class10s
             for(let class10Id in data.class10s) {
+
               let parentClass10Id = data.class10s[class10Id].parent;
               if(parentClass10Id == officeId) {
                 let class10 = new Class10;
