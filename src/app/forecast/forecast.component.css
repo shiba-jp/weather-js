@@ -22,7 +22,7 @@ table{
   .overview table th{
     position: relative;
     text-align: left;
-    width: 23%;
+    width: 25%;
     background-color: #139bad;
     color: white;
     text-align: center;
@@ -32,7 +32,7 @@ table{
   .forecast table th{
     position: relative;
     text-align: left;
-    width: 23%;
+    width: 25%;
     background-color: #52c2d0;
     color: white;
     text-align: center;
@@ -67,7 +67,7 @@ table{
   
   table td{
     text-align: left;
-    width: 77%;
+    width: 75%;
     text-align: center;
     background-color: #eee;
     padding: 10px 0;

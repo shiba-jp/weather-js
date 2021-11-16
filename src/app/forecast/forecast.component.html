@@ -11,7 +11,7 @@
         </tr>
         <tr>
             <th>対象地域</th>
-            <td>{{overview.targetArea}}</td>
+            <td><b>{{overview.targetArea}}</b></td>
         </tr>
         <tr>
             <th>ヘッドライン</th>
@@ -29,19 +29,23 @@
         <table>
             <tr>
                 <th>対象地域</th>
-                <td>{{class10.targetArea}}</td>
+                <td><b>{{class10.targetArea}}</b></td>
             </tr>
             <tr>
                 <th>今日の天気</th>
                 <td>{{class10.today}}</td>
             </tr>
             <tr>
-                <th>気温</th>
-                <td>{{class10.temp}}</td>
+                <th>今日の気温</th>
+                <td><font color="blue">{{class10.tempTodayMin}}</font>&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{class10.tempTodayMax}}</font></td>
             </tr>
             <tr>
                 <th>明日の天気</th>
                 <td>{{class10.tomorrow}}</td>
+            </tr>
+            <tr>
+                <th>明日の気温</th>
+                <td><font color="blue">{{class10.tempTomorrowMin}}</font>&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{class10.tempTomorrowMax}}</font></td>
             </tr>
             <tr>
                 <th>明後日の天気</th>

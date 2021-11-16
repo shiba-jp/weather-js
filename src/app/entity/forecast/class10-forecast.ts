@@ -3,5 +3,8 @@ export class Class10Forecast {
     today: string;
     tomorrow: string;
     dayAfterTomorrow: string;
-    temp: string;
+    tempTodayMin: string;
+    tempTodayMax: string;
+    tempTomorrowMin: string;
+    tempTomorrowMax: string;
 }
