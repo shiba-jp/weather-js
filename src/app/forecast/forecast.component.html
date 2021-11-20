@@ -24,6 +24,23 @@
     </table>
 </div>
 <br/>
+<div class="temps" *ngIf="areaTemps != null">
+    <table>
+        <tr>
+            <th>観測所</th>
+            <th>今日の気温<br/><font color="blue">朝の最低</font>&nbsp;/&nbsp;<font color="red">日中の最高</font></th>
+            <th>明日の気温<br/><font color="blue">朝の最低</font>&nbsp;/&nbsp;<font color="red">日中の最高</font></th>
+        </tr>
+        <ng-container *ngFor="let areaTemp of areaTemps">
+        <tr>
+            <td>{{areaTemp.name}}</td>
+            <td><font color="blue">{{areaTemp.todayMin}}</font>&nbsp;&nbsp;/&nbsp;&nbsp;<font color="red">{{areaTemp.todayMax}}</font></td>
+            <td><font color="blue">{{areaTemp.tomorrowMin}}</font>&nbsp;&nbsp;/&nbsp;&nbsp;<font color="red">{{areaTemp.tomorrowMax}}</font></td>
+        </tr>
+        </ng-container>
+    </table>
+</div>
+<br/>
 <div class="forecast" *ngIf="officeForecast != null">
     <ng-container *ngFor="let class10 of officeForecast.class10s">
         <table>
@@ -36,16 +53,8 @@
                 <td>{{class10.today}}</td>
             </tr>
             <tr>
-                <th>今日の気温</th>
-                <td><font color="blue">{{class10.tempTodayMin}}</font>&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{class10.tempTodayMax}}</font></td>
-            </tr>
-            <tr>
                 <th>明日の天気</th>
                 <td>{{class10.tomorrow}}</td>
-            </tr>
-            <tr>
-                <th>明日の気温</th>
-                <td><font color="blue">{{class10.tempTomorrowMin}}</font>&nbsp;&nbsp;&nbsp;&nbsp;<font color="red">{{class10.tempTomorrowMax}}</font></td>
             </tr>
             <tr>
                 <th>明後日の天気</th>

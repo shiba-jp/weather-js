@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { Class10Forecast } from '../entity/forecast/class10-forecast';
 import { OfficeForecast } from '../entity/forecast/office-forecast';
 import { Overview } from '../entity/forecast/overview';
+import { AreaTemp } from '../entity/forecast/area-temp';
 import { CommonService } from '../services/common.service';
 import { ForecastService } from '../services/forecast/forecast.service';
 
@@ -18,6 +19,7 @@ export class ForecastComponent implements OnInit  {
   reportDatetime: string;
   officeForecast: OfficeForecast;
   overview: Overview;
+  areaTemps: Array<AreaTemp>;
 
   /**
    * subscribe を保持するための Subscription
@@ -61,7 +63,32 @@ export class ForecastComponent implements OnInit  {
           let reportDate: Date = new Date(data[0].reportDatetime);
           this.reportDatetime = this.toLocaleString(reportDate);
           
-          console.log(data[1]);
+          this.areaTemps = new Array<AreaTemp>();
+          for (let i = 0; i < data[0].timeSeries[2].areas.length; i++) {
+            let tempbase = data[0].timeSeries[2].areas[i];
+
+            let temp = new AreaTemp();
+            temp.code = tempbase.area.code;
+            temp.name = tempbase.area.name;
+            if(tempbase.temps.length == 2) {
+              temp.todayMin = "-";
+              temp.todayMax = "-";
+              temp.tomorrowMin = tempbase.temps[0];
+              temp.tomorrowMax = tempbase.temps[1];
+            }
+            if(tempbase.temps.length == 4) {
+              if(tempbase.temps[0] == tempbase.temps[1]) {
+                temp.todayMin = "-";
+              }else{
+                temp.todayMin = tempbase.temps[0];
+              }
+              temp.todayMax = tempbase.temps[1];
+              temp.tomorrowMin = tempbase.temps[2];
+              temp.tomorrowMax = tempbase.temps[3];
+            }
+            this.areaTemps.push(temp);
+          }
+          console.log(this.areaTemps);
 
           for(let i = 0; i < data[0].timeSeries[0].areas.length; i++) {
             console.log(data[0].timeSeries[0].areas[i]);
@@ -75,26 +102,6 @@ export class ForecastComponent implements OnInit  {
               class10Forecast.dayAfterTomorrow = data[0].timeSeries[0].areas[i].weathers[2] ?? '';
             }else{
               class10Forecast.dayAfterTomorrow = '-';
-            }
-
-            let tempbase = data[0].timeSeries[2].areas[i];
-            if(tempbase.temps.length == 2) {
-              class10Forecast.tempTodayMin = "朝の最低：-";
-              class10Forecast.tempTodayMax = "日中の最高：-";
-              class10Forecast.tempTomorrowMin = "朝の最低：" + tempbase.temps[0];
-              class10Forecast.tempTomorrowMax = "日中の最高：" + tempbase.temps[1];
-            }
-            console.log(class10Forecast);
-            if(tempbase.temps.length == 4) {
-              if(tempbase.temps[0] == tempbase.temps[1]) {
-                class10Forecast.tempTodayMin = "朝の最低：-";
-              }else{
-                class10Forecast.tempTodayMin = "朝の最低：" + tempbase.temps[0];
-              }
-              class10Forecast.tempTodayMin = "朝の最低：";
-              class10Forecast.tempTodayMax = "日中の最高：" + tempbase.temps[1];
-              class10Forecast.tempTomorrowMin = "朝の最低：" + tempbase.temps[2];
-              class10Forecast.tempTomorrowMax = "日中の最高：" + tempbase.temps[3];
             }
 
             console.log(class10Forecast);

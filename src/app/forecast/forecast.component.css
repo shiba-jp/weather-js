@@ -29,6 +29,16 @@ table{
     padding: 10px 0;
   }
 
+  .temps table th{
+    position: relative;
+    text-align: left;
+    width: 25%;
+    background-color: #52c2d0;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+
   .forecast table th{
     position: relative;
     text-align: left;
@@ -65,10 +75,26 @@ table{
     border-bottom: 5px solid transparent;
   }
   
-  table td{
+  .overview table td{
     text-align: left;
     width: 75%;
     text-align: center;
+    background-color: #eee;
+    padding: 10px 0;
+  }
+
+  .forecast table td{
+    text-align: left;
+    width: 75%;
+    text-align: center;
+    background-color: #eee;
+    padding: 10px 0;
+  }
+
+  .temps table td{
+    text-align: left;
+    text-align: center;
+    border-right: white;
     background-color: #eee;
     padding: 10px 0;
   }
